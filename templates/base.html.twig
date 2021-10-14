@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <title>{% block title %}Vente de fruits et légumes{% endblock %}</title>
@@ -7,19 +7,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    {% block css %}
+ 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-    {% endblock %}
+       {% block css %}
+       {% endblock %}
 </head>
-
-<body>
-
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #55ac56;">
+ <nav class="navbar navbar-expand-lg navbar-light" style="background-color:  #55ac56;">
         <a class="navbar-brand" style="color: #fff" href="#">Légumes & fruits</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -54,8 +52,10 @@
             </ul>
         </div>
     </nav>
-
-    {% block body %}{% endblock %}
+     
+    {% block body %}
+    {% endblock %}
+     
     
 
 
