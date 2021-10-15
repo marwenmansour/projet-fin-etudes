@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit fruits et légumes{% endblock %}
+
+{% block body %}
+    <h1>Edit fruits et légumes</h1>
+
+    {{ include('calendrier/add.html.twig') }}
+
+    <a href="{{ path('calendrier') }}">back to list</a>
+
+    {# {{ include('calendrier/_delete_form.html.twig') }} #}
+{% endblock %}

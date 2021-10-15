@@ -151,3 +151,8 @@ flip card
 .btn{
     border: none!important;
 }
+.top-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
