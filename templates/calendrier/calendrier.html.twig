@@ -1,20 +1,1587 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CalendrierController! | {{ parent() }}{% endblock %}
+{% block title %}Calendrier des saisons!{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ asset('css/calendrier.css') }}">
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+  <div id="fond"></div>
+        
+        <!-- carousel -->
+        <div class="container" id="carousel">
+    
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>            
+    </ol>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/symfony/projet-fin-etudes/src/Controller/CalendrierController.php'|file_link(0) }}">src/Controller/CalendrierController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/symfony/projet-fin-etudes/templates/calendrier/index.html.twig'|file_link(0) }}">templates/calendrier/index.html.twig</a></code></li>
-    </ul>
+    <div class="carousel-inner" role="listbox">
+
+        <!-- Printemps-->
+        <div class="carousel-item" style="background-image: url('images/juin.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Printemps</h3>
+            <button type="button" class="btn btn-lg btn-primary" id="btn-prin">Voir les légumes & les fruits de la saison</button>
+          </div>
+        </div>
+
+        <!-- Été-->
+        <div class="carousel-item" style="background-image: url('images/juillet.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Été</h3>
+            <button type="button" class="btn btn-lg btn-primary" id="btn-ete">Voir les légumes & les fruits de la saison</button>
+          </div>
+        </div>      
+
+         <!-- Automne-->
+        <div class="carousel-item" style="background-image: url('images/novembre.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Automne</h3>
+            <button type="button" class="btn btn-lg btn-primary" id="btn-aut">Voir les légumes & les fruits de la saison</button>
+          </div>
+        </div>
+
+        <!-- Hiver-->
+        <div class="carousel-item active" style="background-image: url('images/decembre.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <h3>Hiver</h3>
+            <button type="button" class="btn btn-lg btn-primary" id="btn-hiv">Voir les légumes & les fruits de la saison</button>
+          </div>
+        </div>
+
+    </div>
+
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+  
+
+
 </div>
+      
+<!-- carousel finish -->
+<h1 id="titre">Les calendriers des légumes <br> & fruits de la saison</h1>
+ 
+      <div id="bouton">
+        
+        <button type="button" id="bouton-légumes">les légumes</button>
+        <button type="button" id="bouton-fruits" >les fruits</button>
+
+      </div>
+
+<!--hiver-début-->
+<!--hiver-légumes-->
+
+<div class="container" id="hiver">
+
+ <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+    <div  id="légumes-hiv" class="row" >
+
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/aubergines.jpeg" alt="Aubergines">
+              <h4 class="card-title">Aubergines</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Aubergines</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> espagne</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg> </a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/blette.png" alt="blette">
+              <h4 class="card-title">Blette</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Blette</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+     
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/courgette.png" alt="courgette">
+              <h4 class="card-title">Courgette</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Courgette</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/poivron.png" alt="Poivron">
+              <h4 class="card-title">Poivron</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Poivron</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/tomate.png" alt="Tomate">
+              <h4 class="card-title">Tomate</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Tomate</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/carottes.png" alt="carottes">
+              <h4 class="card-title">Carottes</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Carottes</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/Oignons.png" alt="Oignons">
+              <h4 class="card-title">Oignons</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Oignons</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 1.80 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/haricot-vert.png" alt="haricot-vert">
+              <h4 class="card-title">Haricot-vert</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Haricot-vert</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/radis.png" alt="Radis">
+              <h4 class="card-title">Radis</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Radis</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.20  la botte</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/concombre.png" alt="concombre">
+              <h4 class="card-title">Concombre</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Concombre</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 1.80 pièce</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/ail.png" alt="ail">
+              <h4 class="card-title">Ail</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Ail</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 12.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+     
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/endives.png" alt="Petit poid">
+              <h4 class="card-title">Endives</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Endives</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> espagne</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/fenouil.png" alt="fenouil">
+              <h4 class="card-title">Fenouil</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Fenouil</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/buturnut.png" alt="buturnut">
+              <h4 class="card-title">Buturnut</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Buturnut</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/potimarron.png" alt="potimarron">
+              <h4 class="card-title">Potimarron</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Potimarron</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/pomme-de-terre.png" alt="Pomme de terre">
+              <h4 class="card-title">Pomme de terre</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Pomme de terre</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.20 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/potiron.png" alt="Potiron">
+              <h4 class="card-title">Potiron</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Potiron</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 1.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/patate-douce.png" alt="Patae douce">
+              <h4 class="card-title">Patate douce</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Patate douce</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/poireau.png" alt="Poireau">
+              <h4 class="card-title">Poireau</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Poireau</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/epinard.png" alt="Epinard">
+              <h4 class="card-title">Epinard</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Epinard</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/celeri-rave.png" alt="Celeri rave">
+              <h4 class="card-title">Celeri rave</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Celeri rave</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 la pièce</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/oignons-blanc.png" alt="oignons-blanc">
+              <h4 class="card-title">Patate douce</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Oignons blanc</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 la pièce</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/tomate-cerise.png" alt="Tomate cerise">
+              <h4 class="card-title">Tomate cerise</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Tomate cerise</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 6.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/Betteraves.png" alt="Betteraves">
+              <h4 class="card-title">Betteraves</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Betteraves</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/navet.png" alt="Navet">
+              <h4 class="card-title">Navet</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Navet</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/chou-fleur.png" alt="Chou fleur">
+              <h4 class="card-title">Chou fleur</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Chou fleur</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 la pièce</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/chou-vert.png" alt="Chou vert">
+              <h4 class="card-title">Chou vert</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Chou vert</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 la pièce</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/panais.png" alt="Panais">
+              <h4 class="card-title">Panais</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Panais</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/maches.png" alt="Maches">
+              <h4 class="card-title">Maches</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Maches</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 12.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/topinambour.png" alt="Topinambour">
+              <h4 class="card-title">Topinambour</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Topinambour</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 4.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/Choux-de-Bruxelles.png" alt="Choux de bruxelles">
+              <h4 class="card-title">Choux de bruxelles</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Choux de bruxelles</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/echalote.png" alt="Echalotte">
+              <h4 class="card-title">Echalotte</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Echalotte</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/artichaut.png" alt="Artichaut">
+              <h4 class="card-title">Artichaut</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Artichaut</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span>4.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/chou-rouge.png" alt="Chou rouge">
+              <h4 class="card-title">Chou rouge</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Chou rouge</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 4.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/poivrade.png" alt="Poivrade">
+              <h4 class="card-title">Poivrade</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Poivrade</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 4.95 la botte</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/légumes/brocoli.png" alt="Brocoli">
+              <h4 class="card-title">Brocoli</h4>
+            </div>
+          </div>
+
+          <div class="card-back  text-white">
+            <div class="card-body">
+                <h3 class="card-title">Brocoli</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span>France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+</div>
+</div>
+
+
+<!-- hiver-Fruits-->
+
+
+
+<div class="container" style="margin-top: 20px; margin-bottom: 20px;">
+  <div  id="fruits-hiv" class="row">
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/mangue.png" alt="Mangue">
+            <h4 class="card-title">Mangue</h4>
+          </div>
+        </div>
+
+        <div class="card-back text-white">
+          <div class="card-body">
+              <h3 class="card-title">Mangue</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> Perou</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 12.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/framboise.png" alt="Framboise">
+             <h4 class="card-title">Framboise</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Framboise</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> Maroc</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 250g</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>   
+    
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/banane.png" alt="Banane">
+            <h4 class="card-title">Banane</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Banane</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> Marthénique</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span>2.20 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>   
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/citron.png" alt="Citron">          
+            <h4 class="card-title">Citron</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Citron</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.80 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>   
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/avocat.png" alt="Avocat">          
+            <h4 class="card-title">Avocat</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Avocat</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> Perou</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 1.80 la pièce</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>   
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/clementine.png" alt="Clementine">          
+            <h4 class="card-title">Clementine</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Clementine</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span>5.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div> 
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/kaki.png" alt="Kaki">          
+            <h4 class="card-title">Kaki</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Kaki</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 5.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div> 
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/citron-vert.png" alt="Citron vert">          
+            <h4 class="card-title">Citron vert</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Citron vert</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> italie</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 6.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div> 
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/orange.png" alt="Orange">          
+            <h4 class="card-title">Orange</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Orange</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> Espagne</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 5.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div> 
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/myrtille.png" alt="Myrtille">          
+            <h4 class="card-title">Myrtille</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Myrtille</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span>Maroc</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 250g</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>  
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/groseille.png" alt="Groseille">          
+            <h4 class="card-title">Groseille</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Groseille</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> portugal</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 3.95 250g</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>  
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/golden.png" alt="Pomme golden">         
+            <h4 class="card-title">Pomme golden</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Pomme golden</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>  
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/royal_gala.png" alt="Royal gala">          
+            <h4 class="card-title">Royal gala</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Royal gala</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>  
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/comice.png" alt="poire comice">          
+            <h4 class="card-title">poire comice</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title"> poire comice</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 4.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>  
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/pink-lady.png" alt="Pomme pink lady">          
+            <h4 class="card-title">Pomme pink lady</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Pomme pink lady</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 4.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+              </svg></a>
+          </div>
+        </div>
+        
+      </div>
+    </div>  
+
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+      <div class="card card-flip">
+
+        <div class="card-front">
+          <div class="card-body">
+            
+            <img class="card-img-top" src="images/fruits/conférence.png" alt="Poire conférence">         
+            <h4 class="card-title">Poire conférence</h4>
+          </div>
+        </div>
+
+        <div class="card-back  text-white">
+          <div class="card-body">
+            <h3 class="card-title">Poire conférence</h3>
+              <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+              <p class="card-text"><span class="ori-pri">Prix :</span> 2.95 le kg</p>
+              <a href="#" class="btn btn-outline-secondary">Ajouter au panier</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>  
+    <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+  
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/fruits/pomelos.png" alt="Pomelos">         
+              <h4 class="card-title">Pomelos</h4>
+            </div>
+          </div>
+  
+          <div class="card-back  text-white">
+            <div class="card-body">
+              <h3 class="card-title">Pomelos</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> 6.95 le kg</p>
+                <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                  </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>  
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+  
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/fruits/kiwi.png" alt="Kiwi">         
+              <h4 class="card-title">Kiwi</h4>
+            </div>
+          </div>
+  
+          <div class="card-back  text-white">
+            <div class="card-body">
+              <h3 class="card-title">Kiwi</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> 2 les 4 pièces</p>
+                <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                  </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>  
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+  
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/fruits/raisin-noire.png" alt="Raisin muscat">         
+              <h4 class="card-title">Raisin muscat</h4>
+            </div>
+          </div>
+  
+          <div class="card-back  text-white">
+            <div class="card-body">
+              <h3 class="card-title">Raisin muscat</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> 6.95 le kg</p>
+                <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                  </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>  
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+  
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/fruits/kiwi-jaune.png" alt="Kiwi jaune">         
+              <h4 class="card-title">Kiwi jaune</h4>
+            </div>
+          </div>
+  
+          <div class="card-back  text-white">
+            <div class="card-body">
+              <h3 class="card-title">Kiwi jaune</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> france</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> 3 les 3 pièces</p>
+                <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                  </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>  
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+  
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/fruits/anans.png" alt="Ananas">         
+              <h4 class="card-title">Ananas</h4>
+            </div>
+          </div>
+  
+          <div class="card-back  text-white">
+            <div class="card-body">
+              <h3 class="card-title">Ananas</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> Bénin</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> 4.95 le kg</p>
+                <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                  </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>  
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+  
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/fruits/fruits de la passion.png" alt="Fruits de la passion">         
+              <h4 class="card-title">Fruits de la passion</h4>
+            </div>
+          </div>
+  
+          <div class="card-back  text-white">
+            <div class="card-body">
+              <h3 class="card-title">Fruits de la passion</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> marthénique</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> 19.95 le kg</p>
+                <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                  </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+  
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/fruits/orange_jus.png" alt="Orange à jus">         
+              <h4 class="card-title">Orange à jus</h4>
+            </div>
+          </div>
+  
+          <div class="card-back  text-white">
+            <div class="card-body">
+              <h3 class="card-title">Orange à jus</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> Espagne</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span>2.20 le kg </p>
+                <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                  </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class='col-lg-3 col-md-6 col-sm-12'>
+        <div class="card card-flip">
+  
+          <div class="card-front">
+            <div class="card-body">
+              
+              <img class="card-img-top" src="images/fruits/noix.png" alt="Noix">         
+              <h4 class="card-title">Noix</h4>
+            </div>
+          </div>
+  
+          <div class="card-back  text-white">
+            <div class="card-body">
+              <h3 class="card-title">Noix</h3>
+                <p class="card-text"> <span class="ori-pri">Origine :</span> France</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> 9.95 le kg</p>
+                <a href="#" class="btn btn-outline-secondary">Ajouter au panier <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                    <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                  </svg></a>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+  </div>
+</div>
+</div>
+<!-- hiver finish -->
+<!-- hiver finich -->
+
 {% endblock %}
