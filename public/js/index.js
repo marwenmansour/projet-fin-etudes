@@ -13,13 +13,13 @@ $(function () {
         }
 
         else if ($("#ete").css('display') == 'block') {
-            $("#legumes-ete").show();
+            $("#légumes-ete").show();
             $('#fruits-ete').hide();
         }
 
         else {
-            $("#automne-leg").show();
-            $('#automne-frui').hide();
+            $("#légumes-aut").show();
+            $('#fruits-aut').hide();
 
         }
     });
@@ -38,12 +38,10 @@ $(function () {
             $("#fruits-prin").css("display", "flex");
         }
         else if ($("#ete").css('display') == 'block') {
-            $("#legumes-ete").hide();
+            $("#légumes-ete").hide();
             $('#fruits-ete').css("display", "flex");
         }
-        else
-        // 
-        {
+        else {
             $("#légumes-aut").hide();
             $('#fruits-aut').css("display", "flex");
         }

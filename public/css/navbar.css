@@ -5,6 +5,7 @@
 
 }
 
+
 .navbar-brand{
     font-weight: 600;
     text-transform: uppercase;
@@ -44,13 +45,21 @@ a{
     z-index: 1500;
 }
 
-
-
-
 #bouton{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
    
+}
+
+.brand{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.brand > img{
+    min-height: 0vh;
+    width: 130px;
+    margin-right: 12px;
 }
