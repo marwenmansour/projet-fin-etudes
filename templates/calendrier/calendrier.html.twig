@@ -83,226 +83,374 @@
 
 <!--Début HIVER-->
 
-<!-- hiver légumes -->
+
 <div class="container" id="hiver">
+  <!-- hiver légumes -->
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+      <div  id="légumes-hiv" class="row" >
+        {% for legume in legumes_hiv %}
+          <div class='col-lg-3 col-md-6 col-sm-12'>
+            <div class="card card-flip">
 
- <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
-    <div  id="légumes-hiv" class="row" >
-    {% for legume in legumes_hiv %}
-      <div class='col-lg-3 col-md-6 col-sm-12'>
-        <div class="card card-flip">
+              <div class="card-front">
+                <div class="card-body">
+                  
+                  <img class="card-img-top" src="{{ vich_uploader_asset(legume, 'imageFile') }}" alt={{legume.nom}}>
+                  <h4 class="card-title">{{legume.nom}}</h4>
+                </div>
+              </div>
 
-          <div class="card-front">
-            <div class="card-body">
+              <div class="card-back  text-white">
+                <div class="card-body">
+                  <div class="top-card">
+                      <h4 class="card-title">{{legume.nom}}</h4>
+                      <a class="btn btn-danger" href="{{ path('delete', {id: legume.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-danger" href="{{ path('update', {id: legume.id}) }}" title="modifier">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                    
+                    <p class="card-text"> <span class="ori-pri">Origine :</span> {{legume.origine}}</p>
+                    <p class="card-text"><span class="ori-pri">Prix :</span> {{legume.prix}}</p>
+                    <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                      <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                      </svg> 
+                    </a>
+                </div>
+              </div>
               
-              <img class="card-img-top" src="{{ vich_uploader_asset(legume, 'imageFile') }}" alt={{legume.nom}}>
-              <h4 class="card-title">{{legume.nom}}</h4>
             </div>
           </div>
-
-          <div class="card-back  text-white">
-            <div class="card-body">
-            <div class="top-card">
-                <h4 class="card-title">{{legume.nom}}</h4>
-                <a class="btn btn-danger" href="{{ path('delete', {id: legume.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
-					        <i class="fa fa-trash" aria-hidden="true"></i>
-				      </a>
-              <a class="btn btn-danger" href="{{ path('update', {id: legume.id}) }}" title="modifier">
-					      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-				      </a>
-            </div>
-                
-                <p class="card-text"> <span class="ori-pri">Origine :</span> {{legume.origine}}</p>
-              <p class="card-text"><span class="ori-pri">Prix :</span> {{legume.prix}}</p>
-              
-              <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
-                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
-              </svg> </a>
-            </div>
-          </div>
-          
-        </div>
+        {% endfor %}
       </div>
-    {% endfor %}
-    </div>
   </div>
-<!-- hiver légumes fini -->
+  <!-- hiver légumes fini -->
 
-<!-- hiver fruits -->
- <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+  <!-- hiver fruits -->
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
     <div  id="fruits-hiv" class="row" >
-    {% for fruit in fruits_hiv %}
-      <div class='col-lg-3 col-md-6 col-sm-12'>
-        <div class="card card-flip">
+      {% for fruit in fruits_hiv %}
+        <div class='col-lg-3 col-md-6 col-sm-12'>
+          <div class="card card-flip">
 
-          <div class="card-front">
-            <div class="card-body">
-              
-              <img class="card-img-top" src="{{ vich_uploader_asset(fruit, 'imageFile') }}" alt={{fruit.nom}}>
-              <h4 class="card-title">{{fruit.nom}}</h4>
-            </div>
-          </div>
-
-          <div class="card-back  text-white">
-            <div class="card-body">
-            <div class="top-card">
-                <h4 class="card-title">{{fruit.nom}}</h4>
-                <a class="btn btn-danger" href="{{ path('delete', {id: fruit.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
-					        <i class="fa fa-trash" aria-hidden="true"></i>
-				      </a>
-              <a class="btn btn-danger" href="{{ path('update', {id: fruit.id}) }}" title="modifier">
-					      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-				      </a>
-            </div>
+            <div class="card-front">
+              <div class="card-body">
                 
-                <p class="card-text"> <span class="ori-pri">Origine :</span> {{fruit.origine}}</p>
-              <p class="card-text"><span class="ori-pri">Prix :</span> {{fruit.prix}}</p>
-              
-              <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
-                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
-              </svg> </a>
+                <img class="card-img-top" src="{{ vich_uploader_asset(fruit, 'imageFile') }}" alt={{fruit.nom}}>
+                <h4 class="card-title">{{fruit.nom}}</h4>
+              </div>
             </div>
+
+            <div class="card-back  text-white">
+              <div class="card-body">
+              <div class="top-card">
+                  <h4 class="card-title">{{fruit.nom}}</h4>
+                  <a class="btn btn-danger" href="{{ path('delete', {id: fruit.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-danger" href="{{ path('update', {id: fruit.id}) }}" title="modifier">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+              </div>
+                  
+                  <p class="card-text"> <span class="ori-pri">Origine :</span> {{fruit.origine}}</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> {{fruit.prix}}</p>
+                
+                <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                  <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                </svg> </a>
+              </div>
+            </div>
+            
           </div>
-          
         </div>
-      </div>
-    {% endfor %}
+      {% endfor %}
     </div>
   </div>
-   
-<!-- hiver fruits fini -->
+  <!-- hiver fruits fini -->
 
-<!--Début Printemps-->
+</div>
+   
+<!-- hiver fini -->
+
+<!--Début printemps-->
 
 <!-- printemps légumes -->
 <div class="container" id="printemps">
 
- <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
-    <div  id="légumes-prin" class="row" >
-    {% for legume in legumes_prin %}
-      <div class='col-lg-3 col-md-6 col-sm-12'>
-        <div class="card card-flip">
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+      <div  id="légumes-prin" class="row" >
+        {% for legume in legumes_prin %}
+          <div class='col-lg-3 col-md-6 col-sm-12'>
+            <div class="card card-flip">
 
-          <div class="card-front">
-            <div class="card-body">
+              <div class="card-front">
+                <div class="card-body">
+                  
+                  <img class="card-img-top" src="{{ vich_uploader_asset(legume, 'imageFile') }}" alt={{legume.nom}}>
+                  <h4 class="card-title">{{legume.nom}}</h4>
+                </div>
+              </div>
+
+              <div class="card-back  text-white">
+                <div class="card-body">
+                  <div class="top-card">
+                      <h4 class="card-title">{{legume.nom}}</h4>
+                      <a class="btn btn-danger" href="{{ path('delete', {id: legume.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-danger" href="{{ path('update', {id: legume.id}) }}" title="modifier">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                    
+                    <p class="card-text"> <span class="ori-pri">Origine :</span> {{legume.origine}}</p>
+                    <p class="card-text"><span class="ori-pri">Prix :</span> {{legume.prix}}</p>
+                    <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                      <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                      </svg> 
+                    </a>
+                </div>
+              </div>
               
-              <img class="card-img-top" src="{{ vich_uploader_asset(legume, 'imageFile') }}" alt={{legume.nom}}>
-              <h4 class="card-title">{{legume.nom}}</h4>
             </div>
           </div>
-
-          <div class="card-back  text-white">
-            <div class="card-body">
-            <div class="top-card">
-                <h4 class="card-title">{{legume.nom}}</h4>
-                <a class="btn btn-danger" href="{{ path('delete', {id: legume.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
-					        <i class="fa fa-trash" aria-hidden="true"></i>
-				      </a>
-              <a class="btn btn-danger" href="{{ path('update', {id: legume.id}) }}" title="modifier">
-					      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-				      </a>
-            </div>
-                
-                <p class="card-text"> <span class="ori-pri">Origine :</span> {{legume.origine}}</p>
-              <p class="card-text"><span class="ori-pri">Prix :</span> {{legume.prix}}</p>
-              
-              <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
-                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
-              </svg> </a>
-            </div>
-          </div>
-          
-        </div>
+        {% endfor %}
       </div>
-    {% endfor %}
-    </div>
   </div>
-<!-- Printemps légumes fini -->
-<!--Printemps fruits -->
+  <!-- prin légumes fini -->
 
-   <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+  <!-- prin fruits -->
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
     <div  id="fruits-prin" class="row" >
-    {% for fruit in fruits_prin %}
-      <div class='col-lg-3 col-md-6 col-sm-12'>
-        <div class="card card-flip">
+      {% for fruit in fruits_prin %}
+        <div class='col-lg-3 col-md-6 col-sm-12'>
+          <div class="card card-flip">
 
-          <div class="card-front">
-            <div class="card-body">
-              
-              <img class="card-img-top" src="{{ vich_uploader_asset(fruit, 'imageFile') }}" alt={{fruit.nom}}>
-              <h4 class="card-title">{{fruit.nom}}</h4>
-            </div>
-          </div>
-
-          <div class="card-back  text-white">
-            <div class="card-body">
-            <div class="top-card">
-                <h4 class="card-title">{{fruit.nom}}</h4>
-                <a class="btn btn-danger" href="{{ path('delete', {id: fruit.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
-					        <i class="fa fa-trash" aria-hidden="true"></i>
-				      </a>
-              <a class="btn btn-danger" href="{{ path('update', {id: fruit.id}) }}" title="modifier">
-					      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-				      </a>
-            </div>
+            <div class="card-front">
+              <div class="card-body">
                 
-                <p class="card-text"> <span class="ori-pri">Origine :</span> {{fruit.origine}}</p>
-              <p class="card-text"><span class="ori-pri">Prix :</span> {{fruit.prix}}</p>
-              
-              <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
-                <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
-              </svg> </a>
+                <img class="card-img-top" src="{{ vich_uploader_asset(fruit, 'imageFile') }}" alt={{fruit.nom}}>
+                <h4 class="card-title">{{fruit.nom}}</h4>
+              </div>
             </div>
+
+            <div class="card-back  text-white">
+              <div class="card-body">
+              <div class="top-card">
+                  <h4 class="card-title">{{fruit.nom}}</h4>
+                  <a class="btn btn-danger" href="{{ path('delete', {id: fruit.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-danger" href="{{ path('update', {id: fruit.id}) }}" title="modifier">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+              </div>
+                  
+                  <p class="card-text"> <span class="ori-pri">Origine :</span> {{fruit.origine}}</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> {{fruit.prix}}</p>
+                
+                <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                  <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                </svg> </a>
+              </div>
+            </div>
+            
           </div>
-          
         </div>
-      </div>
-    {% endfor %}
+      {% endfor %}
     </div>
   </div>
-<!-- Printemps fruits fini -->
+  <!-- printemps fruits fini -->
 
-<!--Début Printemps-->
-
-<!-- printemps légumes -->
-
-
-
-
-<!-- Printemps fruits fini -->
+</div>
+   
 <!-- printemps fini -->
 
+<!-- automne légumes -->
+<div class="container" id="automne">
 
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+      <div  id="légumes-aut" class="row" >
+        {% for legume in legumes_aut %}
+          <div class='col-lg-3 col-md-6 col-sm-12'>
+            <div class="card card-flip">
 
+              <div class="card-front">
+                <div class="card-body">
+                  
+                  <img class="card-img-top" src="{{ vich_uploader_asset(legume, 'imageFile') }}" alt={{legume.nom}}>
+                  <h4 class="card-title">{{legume.nom}}</h4>
+                </div>
+              </div>
 
-<!--Début Eté-->
+              <div class="card-back  text-white">
+                <div class="card-body">
+                  <div class="top-card">
+                      <h4 class="card-title">{{legume.nom}}</h4>
+                      <a class="btn btn-danger" href="{{ path('delete', {id: legume.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-danger" href="{{ path('update', {id: legume.id}) }}" title="modifier">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                    
+                    <p class="card-text"> <span class="ori-pri">Origine :</span> {{legume.origine}}</p>
+                    <p class="card-text"><span class="ori-pri">Prix :</span> {{legume.prix}}</p>
+                    <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                      <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                      </svg> 
+                    </a>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+  <!-- automne légumes fini -->
 
-<!-- été légumes -->
+  <!-- automne fruits -->
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+    <div  id="fruits-aut" class="row" >
+      {% for fruit in fruits_aut %}
+        <div class='col-lg-3 col-md-6 col-sm-12'>
+          <div class="card card-flip">
 
-<!-- hiver légumes fini -->
+            <div class="card-front">
+              <div class="card-body">
+                
+                <img class="card-img-top" src="{{ vich_uploader_asset(fruit, 'imageFile') }}" alt={{fruit.nom}}>
+                <h4 class="card-title">{{fruit.nom}}</h4>
+              </div>
+            </div>
 
-<!-- hiver fruits -->
+            <div class="card-back  text-white">
+              <div class="card-body">
+              <div class="top-card">
+                  <h4 class="card-title">{{fruit.nom}}</h4>
+                  <a class="btn btn-danger" href="{{ path('delete', {id: fruit.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-danger" href="{{ path('update', {id: fruit.id}) }}" title="modifier">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+              </div>
+                  
+                  <p class="card-text"> <span class="ori-pri">Origine :</span> {{fruit.origine}}</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> {{fruit.prix}}</p>
+                
+                <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                  <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                </svg> </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- automne fruits fini -->
 
-  
-  <!-- été légumes fini -->
-
-
-  <!-- été fruits -->
-
+</div>
    
-
-<!-- été fruits fini -->
-<!-- été fini -->
+<!-- automne fini -->
 
 
-<!--Début Automne-->
+<!-- ete légumes -->
+<div class="container" id="ete">
 
-<!-- Automne légumes -->
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+      <div  id="légumes-ete" class="row" >
+        {% for legume in legumes_ete %}
+          <div class='col-lg-3 col-md-6 col-sm-12'>
+            <div class="card card-flip">
 
-<!-- automne légumes fini -->
+              <div class="card-front">
+                <div class="card-body">
+                  
+                  <img class="card-img-top" src="{{ vich_uploader_asset(legume, 'imageFile') }}" alt={{legume.nom}}>
+                  <h4 class="card-title">{{legume.nom}}</h4>
+                </div>
+              </div>
 
-<!-- automne fruits -->
+              <div class="card-back  text-white">
+                <div class="card-body">
+                  <div class="top-card">
+                      <h4 class="card-title">{{legume.nom}}</h4>
+                      <a class="btn btn-danger" href="{{ path('delete', {id: legume.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                    </a>
+                    <a class="btn btn-danger" href="{{ path('update', {id: legume.id}) }}" title="modifier">
+                      <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    </a>
+                  </div>
+                    
+                    <p class="card-text"> <span class="ori-pri">Origine :</span> {{legume.origine}}</p>
+                    <p class="card-text"><span class="ori-pri">Prix :</span> {{legume.prix}}</p>
+                    <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                      <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                      </svg> 
+                    </a>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+  </div>
+  <!-- ete légumes fini -->
 
-     
-<!-- Automne fruits fini -->
+  <!-- ete fruits -->
+  <div class="container" style="margin-top: 20px; margin-bottom: 20px; ">
+    <div  id="fruits-ete" class="row" >
+      {% for fruit in fruits_ete %}
+        <div class='col-lg-3 col-md-6 col-sm-12'>
+          <div class="card card-flip">
+
+            <div class="card-front">
+              <div class="card-body">
+                
+                <img class="card-img-top" src="{{ vich_uploader_asset(fruit, 'imageFile') }}" alt={{fruit.nom}}>
+                <h4 class="card-title">{{fruit.nom}}</h4>
+              </div>
+            </div>
+
+            <div class="card-back  text-white">
+              <div class="card-body">
+              <div class="top-card">
+                  <h4 class="card-title">{{fruit.nom}}</h4>
+                  <a class="btn btn-danger" href="{{ path('delete', {id: fruit.id}) }}" title="Supprimer" onclick="return confirm('Êtes-vous sûr ?')">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+                <a class="btn btn-danger" href="{{ path('update', {id: fruit.id}) }}" title="modifier">
+                  <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                </a>
+              </div>
+                  
+                  <p class="card-text"> <span class="ori-pri">Origine :</span> {{fruit.origine}}</p>
+                <p class="card-text"><span class="ori-pri">Prix :</span> {{fruit.prix}}</p>
+                
+                <a href="#" class="btn btn-outline-secondary"> Ajouter au panier  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-basket" viewBox="0 0 16 16">
+                  <path d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1v4.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 13.5V9a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h1.217L5.07 1.243a.5.5 0 0 1 .686-.172zM2 9v4.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V9H2zM1 7v1h14V7H1zm3 3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 4 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 6 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3A.5.5 0 0 1 8 10zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5zm2 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0v-3a.5.5 0 0 1 .5-.5z"/>
+                </svg> </a>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <!-- ete fruits fini -->
+
+</div>
+   
+<!-- ete fini -->
 {% endblock %}
